@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class HashMapPractice {
@@ -101,8 +102,23 @@ public class HashMapPractice {
                 return null;
             }else{
                 Node node = buckets[bi].remove(di);
+                n--;
                 return node.value;
             }
+        }
+
+        public boolean isEmpty(){
+            return n==0;
+        }
+
+        public ArrayList<K> keySet () {
+            ArrayList<K> keys = new ArrayList<>();
+            for (LinkedList<Node> ll : buckets) {
+                for (Node node : ll) {
+                    keys.add(node.key);
+                }
+            }
+            return keys;
         }
     }
 
